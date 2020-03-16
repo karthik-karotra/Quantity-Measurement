@@ -227,4 +227,33 @@ public class TestQuantityMeasurement {
         double value2 = quantityMeasurement.unitConversion(Units.CM_TO_INCH, 5.0);
         Assert.assertEquals(value1, value2, 0.0);
     }
+
+    //TestCases for addition of values in different units to inches
+    @Test
+    public void givenTwoInchAndTwoInch_WhenAdded_ShouldReturnFourInch() {
+        double value1 = quantityMeasurement.unitConversion(Units.INCH, 2.0);
+        double value2 = quantityMeasurement.unitConversion(Units.INCH, 2.0);
+        Assert.assertEquals(4,value1+value2, 0.0);
+    }
+
+    @Test
+    public void givenOneFeetAndTwoInch_WhenAdded_ShouldReturnFourteenInch() {
+        double value1 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 1.0);
+        double value2 = quantityMeasurement.unitConversion(Units.INCH, 2.0);
+        Assert.assertEquals(14,value1+value2, 0.0);
+    }
+
+    @Test
+    public void givenOneFeetAndOneFeet_WhenAdded_ShouldReturnTwentyFourInch() {
+        double value1 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 1.0);
+        double value2 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 1.0);
+        Assert.assertEquals(24,value1+value2, 0.0);
+    }
+
+    @Test
+    public void givenTwoInchAndTwoAndHalfCentimeter_WhenAdded_ShouldReturnThreeInch() {
+        double value1 = quantityMeasurement.unitConversion(Units.INCH, 2.0);
+        double value2 = quantityMeasurement.unitConversion(Units.CM_TO_INCH, 2.5);
+        Assert.assertEquals(3,value1+value2, 0.0);
+    }
 }
