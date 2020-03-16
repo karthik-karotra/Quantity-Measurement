@@ -140,7 +140,7 @@ public class TestQuantityMeasurement {
     }
 
     @Test
-    public void givenTwoDifferentYardValues_WhenEqual_ShouldReturnFalse() {
+    public void givenTwoDifferentYardValues_WhenNotEqual_ShouldReturnFalse() {
         double value1 = quantityMeasurement.unitConversion(Units.YARD_TO_INCH, 0.0);
         double value2 = quantityMeasurement.unitConversion(Units.YARD_TO_INCH, 1.0);
         Assert.assertNotEquals(value1, value2, 0.0);
@@ -194,6 +194,37 @@ public class TestQuantityMeasurement {
     public void givenOneYardAndThreeFeet_WhenEqual_ShouldReturnTrue() {
         double value1 = quantityMeasurement.unitConversion(Units.YARD_TO_INCH, 1.0);
         double value2 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 3.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
+
+    //TestCases for
+    @Test
+    public void givenZeroCentimeterAndZeroCentimeterValue_WhenEqual_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.CM_TO_INCH, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.CM_TO_INCH, 0.0);
+        Assert.assertEquals(value1, value2, 0.0);
+    }
+
+    @Test
+    public void givenTwoDifferentCentimeterValues_WhenNotEqual_ShouldReturnFalse() {
+        double value1 = quantityMeasurement.unitConversion(Units.CM_TO_INCH, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.CM_TO_INCH, 1.0);
+        Assert.assertNotEquals(value1, value2, 0.0);
+    }
+
+    @Test
+    public void givenNullCentimeterValue_ShouldReturnFalse() {
+        try {
+            quantityMeasurement.unitConversion(Units.CM_TO_INCH, null);
+        } catch (NullPointerException ex) {
+            Assert.assertEquals(null, ex.getMessage());
+        }
+    }
+
+    @Test
+    public void givenTwoInchAndFiveCentimeter_WhenCompare_ShouldReturnTrue() {
+        double value1 = quantityMeasurement.unitConversion(Units.INCH, 2.0);
+        double value2 = quantityMeasurement.unitConversion(Units.CM_TO_INCH, 5.0);
         Assert.assertEquals(value1, value2, 0.0);
     }
 }
