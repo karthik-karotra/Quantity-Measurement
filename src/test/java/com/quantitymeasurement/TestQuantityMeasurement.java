@@ -460,22 +460,22 @@ public class TestQuantityMeasurement {
     //TestCases for equality check on Celsius
     @Test
     public void givenZeroCelsiusAndZeroCelsius_WhenEqual_ShouldReturnTrue() {
-        double value1 = quantityMeasurement.unitConversion(Units.CELSIUS, 0.0);
-        double value2 = quantityMeasurement.unitConversion(Units.CELSIUS, 0.0);
+        double value1 = quantityMeasurement.unitConversion(Units.CELSIUS_TO_FAHRENHEIT, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.CELSIUS_TO_FAHRENHEIT, 0.0);
         Assert.assertEquals(value1, value2, 0.0);
     }
 
     @Test
     public void givenTwoDifferentCelsiusValues_WhenNotEqual_ShouldReturnFalse() {
-        double value1 = quantityMeasurement.unitConversion(Units.CELSIUS, 0.0);
-        double value2 = quantityMeasurement.unitConversion(Units.CELSIUS, 1.0);
+        double value1 = quantityMeasurement.unitConversion(Units.CELSIUS_TO_FAHRENHEIT, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.CELSIUS_TO_FAHRENHEIT, 1.0);
         Assert.assertNotEquals(value1, value2, 0.0);
     }
 
     @Test
     public void givenNullCelsiusValue_ShouldReturnFalse() {
         try {
-            quantityMeasurement.unitConversion(Units.CELSIUS, null);
+            quantityMeasurement.unitConversion(Units.CELSIUS_TO_FAHRENHEIT, null);
         } catch (NullPointerException ex) {
             Assert.assertEquals(null, ex.getMessage());
         }
@@ -484,22 +484,22 @@ public class TestQuantityMeasurement {
     //TestCases for equality check on Fahrenheit
     @Test
     public void givenZeroFahrenheitAndZeroFahrenheitValue_WhenEqual_ShouldReturnTrue() {
-        double value1 = quantityMeasurement.unitConversion(Units.FAHRENHEIT_TO_CELSIUS, 0.0);
-        double value2 = quantityMeasurement.unitConversion(Units.FAHRENHEIT_TO_CELSIUS, 0.0);
+        double value1 = quantityMeasurement.unitConversion(Units.FAHRENHEIT, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.FAHRENHEIT, 0.0);
         Assert.assertEquals(value1, value2, 0.0);
     }
 
     @Test
     public void givenTwoDifferentFahrenheitValues_WhenNotEqual_ShouldReturnFalse() {
-        double value1 = quantityMeasurement.unitConversion(Units.FAHRENHEIT_TO_CELSIUS, 0.0);
-        double value2 = quantityMeasurement.unitConversion(Units.FAHRENHEIT_TO_CELSIUS, 1.0);
+        double value1 = quantityMeasurement.unitConversion(Units.FAHRENHEIT, 0.0);
+        double value2 = quantityMeasurement.unitConversion(Units.FAHRENHEIT, 1.0);
         Assert.assertNotEquals(value1, value2, 0.0);
     }
 
     @Test
     public void givenNullFahrenheitValue_ShouldReturnFalse() {
         try {
-            quantityMeasurement.unitConversion(Units.FAHRENHEIT_TO_CELSIUS, null);
+            quantityMeasurement.unitConversion(Units.FAHRENHEIT, null);
         } catch (NullPointerException ex) {
             Assert.assertEquals(null, ex.getMessage());
         }
@@ -508,8 +508,8 @@ public class TestQuantityMeasurement {
     //TestCases for equality check on Fahrenheit and Celsius
     @Test
     public void givenTwoHundredAndTwelveFahrenheitAndHundredCelsiusValue_WhenCompare_ShouldReturnTrue() {
-        double value1 = quantityMeasurement.unitConversion(Units.FAHRENHEIT_TO_CELSIUS, 212.0);
-        double value2 = quantityMeasurement.unitConversion(Units.CELSIUS, 100.0);
+        double value1 = quantityMeasurement.unitConversion(Units.FAHRENHEIT, 212.0);
+        double value2 = quantityMeasurement.unitConversion(Units.CELSIUS_TO_FAHRENHEIT, 100.0);
         Assert.assertEquals(value1,value2, 0.0);
     }
 }

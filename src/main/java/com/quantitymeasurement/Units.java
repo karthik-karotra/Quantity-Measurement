@@ -8,7 +8,7 @@ public enum Units {
     //Enums for conversions according to weights
     KILOGRAM(1.0),GRAMS_TO_KILOGRAM(1.0/1000),TONNE_TO_KILOGRAM(1.0*1000),
     //Enums for conversions according to temperature
-    CELSIUS(1.0*2.12), FAHRENHEIT_TO_CELSIUS(1.0);
+    CELSIUS_TO_FAHRENHEIT(1.8), FAHRENHEIT(1.0);
 
     final Double unit;
 

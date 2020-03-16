@@ -3,7 +3,7 @@ package com.quantitymeasurement;
 public class QuantityMeasurement {
 
     public double unitConversion(Units units, Double value) {
-        return value * units.unit;
+        return (String.valueOf(units)=="CELSIUS_TO_FAHRENHEIT") ? value * units.unit+32 :value * units.unit;
     }
 
     @Override
