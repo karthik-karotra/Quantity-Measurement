@@ -346,4 +346,20 @@ public class TestQuantityMeasurement {
         double value2 = quantityMeasurement.unitConversion(Units.MILLILITER_TO_LITRE, 1000.0);
         Assert.assertEquals(value1, value2, 0.0);
     }
+
+    @Test
+    public void givenVolumesInDifferentUnits_WhenAdded_ShouldReturnVolumeInLitre() {
+        double value1 = quantityMeasurement.unitConversion(Units.GALLON_TO_LITRE, 1.0);
+        double value2 = quantityMeasurement.unitConversion(Units.LITRE, 3.78);
+        Assert.assertEquals(7.56, value1 + value2, 0.0);
+    }
+
+    @Test
+    public void givenOneLitreAndOneThousandMillilitre_WhenAdded_ShouldReturnTwoLitres() {
+        double value1 = quantityMeasurement.unitConversion(Units.LITRE, 1.0);
+        double value2 = quantityMeasurement.unitConversion(Units.MILLILITER_TO_LITRE, 1000.0);
+        Assert.assertEquals(2, value1 + value2, 0.0);
+    }
+
+
 }
