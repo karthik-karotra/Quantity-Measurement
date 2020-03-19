@@ -236,28 +236,32 @@ public class TestQuantityMeasurement {
     public void givenTwoInchAndTwoInch_WhenAdded_ShouldReturnFourInch() {
         double value1 = quantityMeasurement.unitConversion(Units.INCH, 2.0);
         double value2 = quantityMeasurement.unitConversion(Units.INCH, 2.0);
-        Assert.assertEquals(4, value1 + value2, 0.0);
+        double totalLength = quantityMeasurement.addingUnits(value1, value2);
+        Assert.assertEquals(4, totalLength, 0.0);
     }
 
     @Test
     public void givenOneFeetAndTwoInch_WhenAdded_ShouldReturnFourteenInch() {
         double value1 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 1.0);
         double value2 = quantityMeasurement.unitConversion(Units.INCH, 2.0);
-        Assert.assertEquals(14, value1 + value2, 0.0);
+        double totalLength = quantityMeasurement.addingUnits(value1, value2);
+        Assert.assertEquals(14, totalLength, 0.0);
     }
 
     @Test
     public void givenOneFeetAndOneFeet_WhenAdded_ShouldReturnTwentyFourInch() {
         double value1 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 1.0);
         double value2 = quantityMeasurement.unitConversion(Units.FEET_TO_INCH, 1.0);
-        Assert.assertEquals(24, value1 + value2, 0.0);
+        double totalLength = quantityMeasurement.addingUnits(value1, value2);
+        Assert.assertEquals(24, totalLength, 0.0);
     }
 
     @Test
     public void givenTwoInchAndTwoAndHalfCentimeter_WhenAdded_ShouldReturnThreeInch() {
         double value1 = quantityMeasurement.unitConversion(Units.INCH, 2.0);
         double value2 = quantityMeasurement.unitConversion(Units.CM_TO_INCH, 2.5);
-        Assert.assertEquals(3, value1 + value2, 0.0);
+        double totalLength = quantityMeasurement.addingUnits(value1, value2);
+        Assert.assertEquals(3, totalLength, 0.0);
     }
 
     //TestCases for equality check on Gallon
@@ -352,14 +356,16 @@ public class TestQuantityMeasurement {
     public void givenVolumesInDifferentUnits_WhenAdded_ShouldReturnVolumeInLitre() {
         double value1 = quantityMeasurement.unitConversion(Units.GALLON_TO_LITRE, 1.0);
         double value2 = quantityMeasurement.unitConversion(Units.LITRE, 3.78);
-        Assert.assertEquals(7.56, value1 + value2, 0.0);
+        double totalVolume = quantityMeasurement.addingUnits(value1, value2);
+        Assert.assertEquals(7.56, totalVolume, 0.0);
     }
 
     @Test
     public void givenOneLitreAndOneThousandMillilitre_WhenAdded_ShouldReturnTwoLitres() {
         double value1 = quantityMeasurement.unitConversion(Units.LITRE, 1.0);
         double value2 = quantityMeasurement.unitConversion(Units.MILLILITER_TO_LITRE, 1000.0);
-        Assert.assertEquals(2, value1 + value2, 0.0);
+        double totalVolume = quantityMeasurement.addingUnits(value1, value2);
+        Assert.assertEquals(2, totalVolume, 0.0);
     }
 
     //TestCases for equality check on Kilogram
@@ -454,7 +460,8 @@ public class TestQuantityMeasurement {
     public void givenOneTonneAndOneThousandGrams_WhenAdded_ShouldReturnOneThousandOneKilograms() {
         double value1 = quantityMeasurement.unitConversion(Units.TONNE_TO_KILOGRAM, 1.0);
         double value2 = quantityMeasurement.unitConversion(Units.GRAMS_TO_KILOGRAM, 1000.0);
-        Assert.assertEquals(1001, value1 + value2, 0.0);
+        double totalWeight = quantityMeasurement.addingUnits(value1, value2);
+        Assert.assertEquals(1001, totalWeight, 0.0);
     }
 
     //TestCases for equality check on Celsius

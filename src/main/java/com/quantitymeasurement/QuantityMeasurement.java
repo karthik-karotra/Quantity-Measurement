@@ -13,4 +13,8 @@ public class QuantityMeasurement {
         if (this.getClass() == o.getClass()) return true;
         return super.equals(o);
     }
+
+    public double addingUnits(double value1, double value2) {
+            return value1+value2;
+    }
 }
